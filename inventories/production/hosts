@@ -1,0 +1,7 @@
+# Django : 2022-04-06
+
+# Definition einer Hostgruppe "ffmuc"
+[ffmuc]
+
+# Auflistung aller Hosts, die der vorgenannten Hostgruppe angehören.
+rpb4-ol-a

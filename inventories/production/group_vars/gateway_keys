@@ -1,0 +1,6 @@
+# aus https://github.com/freifunkMUC/site-ffm/blob/stable/domains/ "publickey"
+gw_publickey:
+  gw04: "TszFS3oFRdhsJP3K0VOlklGMGYZy+oFCtlaghXJqW2g="
+  gw05: "igyqOmWiz4EZxPG8ZzU537MnHhaqlwfa7HarB3KmnEg="
+  gw06: "pkRaUOoLuuHnUt9BEGeKrhF3OMYBPecc0iYkika6uhE="
+  gw07: "PcKkakZcTEx3LKh+G06Opb8/esg08aWK33A5/Ff1YXE="

@@ -1,0 +1,15 @@
+# https://ffmuc.net/wiki/doku.php?id=knb:rpb4_wg#berechnung_der_mesh_vpn_vxlan_id 
+gw_vxlan_ids:
+  muc_cty:  3836090
+  muc_nord: 1920014
+  muc_ost:  12097488
+  muc_sued: 12815947
+  muc_west: 29149
+  uml_nord: 403289
+  uml_ost:  12645856
+  uml_sued: 12090508
+  uml_west: 935867
+  gauting:  4681119
+  freising: 4669918
+  welt:     4831583
+  augsburg: 2962115 

@@ -1,0 +1,2 @@
+ansible_ssh_user: pi
+dtparam: "i2c_arm=on"

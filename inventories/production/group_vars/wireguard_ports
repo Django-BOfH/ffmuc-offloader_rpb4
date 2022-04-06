@@ -1,0 +1,14 @@
+wireguard_ports:
+  muc_cty:  40002
+  muc_nord: 40003
+  muc_ost:  40004
+  muc_sued: 40005
+  muc_west: 40006
+  uml_nord: 40007
+  uml_ost:  40008
+  uml_sued: 40009
+  uml_west: 40010
+  gauting:  40012
+  freising: 40013
+  welt:     40011
+  augsburg: 40014           

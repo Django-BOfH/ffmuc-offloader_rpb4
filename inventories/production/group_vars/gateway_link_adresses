@@ -1,0 +1,6 @@
+# aus https://github.com/freifunkMUC/site-ffm/blob/stable/domains/ "link_address"
+gw_linklocal:
+  gw04: "fe80::27c:16ff:fec0:6c74"
+  gw05: "fe80::281:8eff:fef0:73aa"
+  gw06: "fe80::2a2:e4ff:fef9:2269"
+  gw07: "fe80::23b:d2ff:fe95:967f"

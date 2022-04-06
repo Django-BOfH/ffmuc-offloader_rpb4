@@ -1,0 +1,19 @@
+# IP-Adresse unseres Raspberry in unserem eigenen lokalen Netzwerk
+# Alugehäuse ohne Lüfter und ohne Display
+# MAC: dc:a6:32:5c:46:07
+ansible_ssh_host: 192.168.0.23
+ansible_port: 22
+ansible_user: pi
+ansible_ssh_private_key_file: ~/.ssh/id_ed25519_freifunk
+#
+batman_adv_version:   "2020.4"
+ffmuc_segment:        "muc_ost"
+ffmuc_gateway:        "gw06"
+raspberry_hostname:   "ff_pliening_rpb4_ol_v6a"
+node_contact_address: "hier entlang => https://bit.ly/2VxGoXp"
+raspberry_latitude:   "48.198790640"
+raspberry_longitude:  "11.798020899"
+raspberry_wifi:       "nein"
+raspberry_clientvlan: "7"
+raspberry_meshvlan:   "8"
+raspberry_oled:       "nein"

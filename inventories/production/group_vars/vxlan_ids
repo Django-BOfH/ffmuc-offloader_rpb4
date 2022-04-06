@@ -1,0 +1,15 @@
+# Die vxlan id berechnet sich aus dem domain_seed: https://ffmuc.net/wiki/doku.php?id=knb:rpb4_wg#mesh_per_vxlan1 
+vxlan_ids:
+  muc_cty:  10758607
+  muc_nord: 15521492
+  muc_ost:  2948862
+  muc_sued: 8599288
+  muc_west: 7318933
+  uml_nord: 5705961
+  uml_ost:  4892713
+  uml_sued: 16544703
+  uml_west: 16677749
+  gauting:  16175732
+  freising: 12937858
+  welt:     16306234
+  augsburg: 10700201
