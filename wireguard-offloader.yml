@@ -12,6 +12,6 @@
   roles:
     - basic                             # Basiskonfiguration des Hosts (Host-/Username anpassen und System Updaten)
     - batman                            # Installation und Konfiguration der BATMAN Kernel-Module
-
+    - wireguard                         # Installation und Konfiguration des wireguard Tunnels
 ... # YML Ende
 

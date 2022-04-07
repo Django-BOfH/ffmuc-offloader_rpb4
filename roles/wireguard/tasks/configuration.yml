@@ -1,0 +1,31 @@
+---
+  - name: "private-key einlesen und in Variable übergeben"
+    shell: cat /etc/wireguard/client_private.key
+    register: wg_client_privatekey
+
+  - name: "public-key einlesen und in Variable übergeben"
+    shell: cat /etc/wireguard/client_public.key
+    register: wg_client_publickey
+
+  - name: "Socket ermitteln"
+    set_fact:
+      ffmuc_wireguard_port: "{{ item.value }}"
+    loop: "{{ lookup('dict', wireguard_ports) }}"
+    when: "ffmuc_segment in item.key"
+
+  - name: "link-local des Gateways ermitteln"
+    set_fact:
+      ffmuc_wireguard_linklocal: "{{ item.value }}"
+    loop: "{{ lookup('dict', gw_linklocal) }}"
+    when: "ffmuc_gateway in item.key"
+
+  - name: "publickey des Gateways ermitteln"
+    set_fact:
+      ffmuc_wireguard_gwpubkey: "{{ item.value }}"
+    loop: "{{ lookup('dict', gw_publickey) }}"
+    when: "ffmuc_gateway in item.key"
+
+  - name: "Konfigurationsdatei des wireguard-Tunnels erzeugen"
+    template:
+      src: templates/uplink.j2
+      dest: /etc/wireguard/wg-uplink.conf

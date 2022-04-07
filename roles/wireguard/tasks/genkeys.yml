@@ -1,0 +1,16 @@
+---
+  - name: "Schlüsselmaterial erstellen"
+    shell: /usr/bin/wg genkey | tee client_private.key | wg pubkey | tee client_public.key 
+    args:
+      chdir: /etc/wireguard/
+      creates: client_private.key  
+
+  - name: "Zugriffsrechte des Private Keys anpassen"
+    file: 
+      path: /etc/wireguard/client_private.key
+      mode: '0600'
+
+  - name: "Zugriffsrechte des Public Keys anpassen"
+    file: 
+      path: /etc/wireguard/client_public.key
+      mode: '0600'

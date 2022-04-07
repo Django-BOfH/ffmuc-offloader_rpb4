@@ -1,0 +1,7 @@
+---
+  - name: "Service wireguard via systemd starten"
+    systemd:
+      name: wg-quick@wg-uplink
+      daemon_reload: yes
+      state: started
+      enabled: yes

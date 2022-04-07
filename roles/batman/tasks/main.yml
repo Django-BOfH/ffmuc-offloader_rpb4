@@ -6,5 +6,5 @@
 - include: batmanstart.yml              # Aktivierung von BATMAN_V
 - include: interfaceconfigure.yml       # Konfiguration der Interfaces
 - include: rsyslog.yml                  # syslog-Anpassungen
-- include: reboot.yml                   # Rebot nach Ende des Installationsschritts
+- include: reboot.yml                   # Reboot nach Ende des Installationsschritts
 ... # YML Ende

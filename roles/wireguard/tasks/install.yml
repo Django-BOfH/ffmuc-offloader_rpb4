@@ -1,0 +1,8 @@
+---
+  - name: "Installation von wireguard und iptables"
+    apt: 
+      #update_cache: yes
+      pkg:
+       - wireguard
+       - iptables
+      state: present

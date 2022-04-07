@@ -1,0 +1,6 @@
+---
+  - name: "Startsrcipt für der RADV-Filter anlegen"
+    template:
+      src: templates/radv-filter.j2
+      dest: /usr/local/bin/radv-filter
+

@@ -1,0 +1,9 @@
+[Interface]
+PrivateKey = {{ wg_client_privatekey.stdout }}
+Address = {{ wg_node_linklocal.stdout }}
+
+[Peer]
+PublicKey = {{ ffmuc_wireguard_gwpubkey }}
+AllowedIPs = {{ ffmuc_wireguard_linklocal }}
+Endpoint = {{ ffmuc_gateway }}.ext.ffmuc.net:{{ ffmuc_wireguard_port }}
+PersistentKeepalive = 25

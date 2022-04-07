@@ -1,0 +1,4 @@
+---
+  - name: "lokale link-local IPv6 Adresse aus dem PUBLIC-Key erzeugen"
+    shell: cat /etc/wireguard/client_public.key | md5sum | sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\).*$/fe80::02\1:\2ff:fe\3:\4\5/'
+    register: wg_node_linklocal 

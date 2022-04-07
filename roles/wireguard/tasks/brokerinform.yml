@@ -1,0 +1,12 @@
+---
+  - name: "systemd unit file für broker -Information anlegen"    
+    template:
+      src: templates/broker.j2
+      dest: /etc/systemd/system/broker.service
+
+  - name: "Service broker starten beim Booten starten"
+    systemd:
+      name: broker
+      daemon_reload: yes
+      state: started
+      enabled: yes

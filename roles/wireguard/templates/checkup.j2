@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Check connectivity to supernode
+HTTP_STATUS_CODE=(`curl --silent --interface wg-uplink --get --ipv6 --connect-timeout 5 --write-out '%{http_code}' --output /dev/null 'http://[{{ ffmuc_wireguard_linklocal }}]:80'`)
+if [ ${HTTP_STATUS_CODE} != "200" ]; then
+        logger -t checkuplink "curl --silent --interface wg-uplink --get --ipv6 --connect-timeout 5 --write-out '%{http_code}' --output /dev/null 'http://[{{ ffmuc_wireguard_linklocal }}]:80' faild with HTTP-errorcode: ${HTTP_STATUS_CODE}"
+        logger -t checkuplink "... better we restart the wireguar-tunnel!"
+        ip link set nomaster bat-{{ ffmuc_segment }} dev vxlan-mesh &> /dev/null
+        ip link del dev mesh-vpn &> /dev/null
+        ip link del wg-uplink &> /dev/null
+        systemctl stop wg-quick@wg-uplink
+        systemctl restart networking
+        logger -t checkuplink "Sending public-key to the broker."
+        /usr/bin/wget -q -O- --post-data='{"domain":"ffmuc_{{ ffmuc_segment }}","public_key":"{{ wg_client_publickey.stdout }}"}' http://broker.ffmuc.net/api/v1/wg/key/exchange
+        logger -t checkuplink "Starting wireguard-daemon."
+        systemctl start wg-quick@wg-uplink
+        logger -t checkuplink "Starting vxlan-meshing."
+        vxlan
+else
+        #logger -t checkuplink "wiregurad-tunnel is up an running : HTTP-statuscode: ${HTTP_STATUS_CODE}"
+fi
+

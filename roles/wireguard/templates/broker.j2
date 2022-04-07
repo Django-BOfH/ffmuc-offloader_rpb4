@@ -1,0 +1,16 @@
+# Django : 2020-12-07
+[Unit]
+# see man systemd.unit
+Description=Inform tunnel about our wireguard-public key
+Documentation=https://wiki.mailserver.guru/doku.php/centos:ansible:ffmuc-rpb4-ol
+Before=wg-quick.target
+
+[Service]
+# see man systemd.service, systemd.exec
+ExecStart=/usr/bin/wget -q -O- --post-data='{"domain":"ffmuc_{{ ffmuc_segment }}","public_key":"{{ wg_client_publickey.stdout }}"}' http://broker.ffmuc.net/api/v1/wg/key/exchange
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=default.target
+

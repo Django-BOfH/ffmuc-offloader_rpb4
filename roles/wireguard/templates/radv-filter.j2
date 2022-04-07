@@ -1,0 +1,25 @@
+#!/bin/bash
+# Paketfilter/Firewall fuer RA-Filter setzen
+
+gwl=$(batctl bat-{{ ffmuc_segment }} gwl | grep \* | awk '{print $2}')
+
+echo $gwl
+
+ebtables=$(ebtables -L RADV_FILTER)
+if [ "$?" -ne "0" ]; then
+	logger -t radv_filter_simple "ebtables chain RADV_FILTER does not exist"
+	ebtables -N RADV_FILTER
+	ebtables -P RADV_FILTER DROP
+        ebtables -A FORWARD -p IPv6 -i bat-{{ ffmuc_segment }} --ip6-proto ipv6-icmp --ip6-icmp-type router-advertisement -j RADV_FILTER
+fi 
+ebtables=$(ebtables -L RADV_FILTER | grep -q $gwl)
+if [ "$?" -ne "0" ]; then
+	logger -t radv_filter_simple "Setting IPv6 Gateway to $gwl"
+	ebtables -F RADV_FILTER
+	ebtables -A RADV_FILTER -s $gwl -j ACCEPT
+fi
+if [ "$?" -ne "0" ]; then
+	logger -t radv_filter_simple "Setting gateway failed failling back to accept all"
+	ebtables -F RADV_FILTER
+	ebtables -A RADV_FILTER -j ACCEPT
+fi

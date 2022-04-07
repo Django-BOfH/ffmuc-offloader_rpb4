@@ -1,0 +1,10 @@
+--- # Installation und Konfiguration von WIREGUARD
+- include: install.yml                  # Installation des wireguard-Paketes
+- include: genkeys.yml                  # Schlüsselmaterial erzeugen
+- include: genlinklocal.yml             # lokale link-local IPv6 Adresse generieren
+- include: configuration.yml            # Konfigurationsdatei kopieren und anpassen
+- include: brokerinform.yml             # Public-Key unseres Nodes an den Broker übermitteln 
+- include: wireguardstart.yml           # Aktivierung des wireguard client-daemon
+- include: radv-filter.yml              # RADV-Filter setzen
+- include: checkup.yml                  # Wireguard überprüfen
+... # YML Ende
