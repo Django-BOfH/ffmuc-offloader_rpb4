@@ -1,0 +1,15 @@
+---
+  - name: "*BATMAN load-modules* : Laden der BATMAN Dynamic Kernel Module beim Booten sicherstellen"
+    template: 
+      src: templates/batman-adv.module.j2
+      dest: /etc/modules-load.d/batman-adv.module.conf
+
+  - name: "*BATMAN load-modules* : dummy Modul laden"
+    modprobe: 
+      name: dummy
+      state: present
+
+  - name: "*BATMAN load-modules* : BATMAN-ADV Modul laden"
+    modprobe: 
+      name: batman_adv
+      state: present

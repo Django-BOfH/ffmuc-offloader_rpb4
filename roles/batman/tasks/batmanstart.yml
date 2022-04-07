@@ -1,0 +1,4 @@
+---
+  - name: "*BATMAN-ADV* : Aktivierung von BATMAN_V"
+    shell: 
+      cmd: batctl ra BATMAN_V

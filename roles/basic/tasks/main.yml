@@ -4,4 +4,5 @@
 - include: usercomment.yml              # Beschreibung des User 'pi' anpassen
 - include: rfkill.yml                   # Service rfkill bei Raspberry Pi OS deaktivieren
 - include: update.yml                   # Update und Upgrade der APT-Pakete
+- include: reboot.yml                   # Reboot nach Abschluss der Erstinstallation/-konfiguration
 ... # YML Ende

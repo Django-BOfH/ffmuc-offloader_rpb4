@@ -1,0 +1,17 @@
+---
+  - name: "*utils-installation* : Installation der bridge-utils"
+    apt: 
+      #update_cache: yes
+      pkg:
+       - bridge-utils
+       - dnsutils
+       - vim
+      state: present
+
+  - name: "*utils-installation* : Installation des batctl-packages"
+    apt:
+      #update_cache: yes
+      pkg:
+      - batctl
+      default_release: "/^bullseye(|-security|-updates)$/" 
+      state: present

@@ -1,0 +1,12 @@
+---
+  - name: "Installation : Download des aktuellen BATMAN Archives"
+    get_url: 
+      url: https://downloads.open-mesh.org/batman/releases/batman-adv-{{ batman_adv_version }}/batman-adv-{{ batman_adv_version }}.tar.gz
+      dest: /usr/src/batman-adv-{{ batman_adv_version }}.tar.gz
+      mode: '0644'
+
+  - name: "BATMAN Installation : Entpacken des BATMAN-Archives"
+    unarchive:
+      src: /usr/src/batman-adv-{{ batman_adv_version }}.tar.gz
+      dest: /usr/src
+      remote_src: yes

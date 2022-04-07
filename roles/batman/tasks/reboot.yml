@@ -1,0 +1,3 @@
+---
+  - name: "*BATMAN Installation* : Reboot nach Ende der BATMAN Installationsschritte"
+    reboot:

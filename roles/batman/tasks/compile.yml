@@ -1,0 +1,31 @@
+---
+  - name: "compile : Installation des Dynamic Kernel Module Support Framework und der Header Files für den Raspberry Pi OS Linux Kernel"
+    apt: 
+      update_cache: yes
+      pkg:
+        - dkms
+        - raspberrypi-kernel-headers
+      state: present
+
+  - name: "compile : Rebuild BATMAN Kernel Header Dateien"
+    make:
+      chdir: /usr/src/linux-headers-{{ ansible_kernel }}
+      target: scripts
+    ignore_errors: yes
+
+  - name: "compile : Anlegen der dkms.conf für Dynamic Kernel Module Support"
+    template:
+      src: templates/dkms.j2
+      dest: /usr/src/batman-adv-{{ batman_adv_version }}/dkms.conf
+
+  - name: "compile : Dynamic Kernel Module Support hinzufügen"
+    command: dkms add -m batman-adv -v {{ batman_adv_version }}
+    register: ret
+    failed_when: ret.rc != 0 and ret.rc != 3
+    changed_when: ret.rc == 0
+
+  - name: "compile : Dynamic Kernel Module bauen"
+    command: dkms build -m batman-adv -v {{ batman_adv_version }}
+
+  - name: "compile : BATMAN Dynamic Kernel Module installieren"
+    command: dkms install -m batman-adv -v {{batman_adv_version }}

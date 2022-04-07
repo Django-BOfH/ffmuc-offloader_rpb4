@@ -1,0 +1,10 @@
+--- # Installation und Konfiguration von BATMAN
+- include: install.yml                  # Download des aktuellen BATMAN Archives
+- include: compile.yml                  # BATMAN Kernel-Module erzeugen
+- include: modulloads.yml               # MATMAN-ADV und DUMMY Module laden
+- include: utilsinstall.yml             # Installation der bridge-utils und batctl 
+- include: batmanstart.yml              # Aktivierung von BATMAN_V
+- include: interfaceconfigure.yml       # Konfiguration der Interfaces
+- include: rsyslog.yml                  # syslog-Anpassungen
+- include: reboot.yml                   # Rebot nach Ende des Installationsschritts
+... # YML Ende

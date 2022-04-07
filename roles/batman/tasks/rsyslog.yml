@@ -1,0 +1,5 @@
+---
+  - name: "*BATMAN-ADV Interfaces* : received packet ... with own address as source address im syslog unterdrücken"  
+    template:
+      src: templates/01-blocklist.j2 
+      dest: /etc/rsyslog.d/01-blocklist.conf
