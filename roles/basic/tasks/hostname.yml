@@ -1,0 +1,4 @@
+---
+  - name: "Hostname ändern"
+    shell: 
+      cmd: hostnamectl set-hostname {{ raspberry_hostname }}

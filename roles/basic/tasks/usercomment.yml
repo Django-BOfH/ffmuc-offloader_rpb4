@@ -1,0 +1,7 @@
+---
+  - name: "Beschreibung des User 'pi' anpassen"
+    user: 
+      name: pi
+      comment: "Raspberry Pi OS System User"
+      state: present
+

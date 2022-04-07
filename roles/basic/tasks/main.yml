@@ -1,0 +1,7 @@
+--- # Grundkonfiguration und Systemupgrade des Raspberry Pi OS
+- include: hostname.yml                 # Hostname ändern
+- include: hosts.yml                    # /etc/hosts anpassen
+- include: usercomment.yml              # Beschreibung des User 'pi' anpassen
+- include: rfkill.yml                   # Service rfkill bei Raspberry Pi OS deaktivieren
+- include: update.yml                   # Update und Upgrade der APT-Pakete
+... # YML Ende

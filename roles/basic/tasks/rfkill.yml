@@ -1,0 +1,4 @@
+---
+  - name: "Service rfkill am Raspberry deaktivieren"
+    shell: 
+      cmd: rfkill unblock wifi

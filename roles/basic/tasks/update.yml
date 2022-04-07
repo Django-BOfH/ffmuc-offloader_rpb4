@@ -1,0 +1,11 @@
+---
+  - name: "Zuerst 'apt-get update' ausführen"
+    apt: 
+      update_cache: yes
+
+  - name: "Alle installierten Pakete Updaten"
+    apt: 
+      name: "*"
+      state: latest
+    notify:
+      - reboot_node       
