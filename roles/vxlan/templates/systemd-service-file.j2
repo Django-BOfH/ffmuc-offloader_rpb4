@@ -1,0 +1,15 @@
+[Unit]
+# see man systemd.unit
+Description=Bringing up VXLAN Interface
+Documentation=https://wiki.mailserver.guru/doku.php/centos:ansible:ffmuc-rpb4-ol
+After=wg-quick@wg-uplink.service
+
+[Service]
+# see man systemd.service, systemd.exec
+Type=oneshot
+ExecStart=/usr/local/bin/vxlan
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target

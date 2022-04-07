@@ -1,0 +1,29 @@
+---
+  - name: "*VXLAN* : Paketfilter anpassen - Eingehenden VXLAN Verkehr auf dem Mesh-Interface erlauben"
+    command: ip6tables -I INPUT 1 -i wg-uplink -m udp -p udp --dport 8472 -j ACCEPT 
+
+  - name: "*VXLAN* : VXLAN-ID des gewählten Segments ermitteln"
+    set_fact:
+      ffmuc_vxlan_id: "{{ item.value }}"
+    loop: "{{ lookup('dict', gw_vxlan_ids) }}"
+    when: "ffmuc_segment in item.key"
+
+  - name: "*VXLAN* : link-local des Gateways ermitteln"
+    set_fact:
+      ffmuc_wireguard_linklocal: "{{ item.value }}"
+    loop: "{{ lookup('dict', gw_linklocal) }}"
+    when: "ffmuc_gateway in item.key"
+
+  - name: "*VXLAN* : lokale link-local IPv6 Adresse aus dem PUBLIC-Key erzeugen"
+    shell: cat /etc/wireguard/client_public.key | md5sum | sed 's/^\(..\)\(..\)\(..\)\(..\)\(..\).*$/fe80::02\1:\2ff:fe\3:\4\5/'
+    register: wg_node_linklocal
+
+  - name: "*VXLAN* : Startupdatei für VXLAN kopieren"
+    template:
+      src: templates/vxlan-init.j2
+      dest: /usr/local/bin/vxlan
+
+  - name: "*VXLAN* : Ausführungsrechte des Bash-Scripts anpassen"
+    file:
+      path: /usr/local/bin/vxlan
+      mode: '0740'

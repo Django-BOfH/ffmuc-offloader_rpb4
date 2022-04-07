@@ -13,5 +13,5 @@
     - basic                             # Basiskonfiguration des Hosts (Host-/Username anpassen und System Updaten)
     - batman                            # Installation und Konfiguration der BATMAN Kernel-Module
     - wireguard                         # Installation und Konfiguration des wireguard Tunnels
+    - vxlan                             # Konfiguration von VXLAN für wireguard-Tunnel-Verbindung in Richtung Gateway
 ... # YML Ende
-

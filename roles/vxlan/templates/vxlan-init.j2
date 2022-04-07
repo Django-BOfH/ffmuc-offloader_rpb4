@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Bring up VXLAN
+ip link add mesh-vpn type vxlan id {{ ffmuc_vxlan_id }} local {{ wg_node_linklocal.stdout }} remote {{ ffmuc_wireguard_linklocal }} dstport 8472 dev wg-uplink
+ip link set up dev mesh-vpn
+
+# Bind mesh-vpn to BATMAN-Device
+/usr/sbin/batctl meshif bat-{{ ffmuc_segment }} if add mesh-vpn
+
+# If we have a BATMAN_V env we need to correct the throughput value now
+/usr/sbin/batctl hardif mesh-vpn throughput_override 10000

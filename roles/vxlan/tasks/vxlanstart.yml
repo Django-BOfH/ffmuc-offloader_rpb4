@@ -1,0 +1,16 @@
+---
+  - name: "*VXLAN* : systemd-unitfile anlegen"
+    template:
+      src: templates/systemd-service-file.j2
+      dest: /etc/systemd/system/vxlan.service
+
+  - name: "*VXLAN* : Neues Unitfile dem systemd bekannt geben"
+    systemd:
+      daemon_reload: yes
+
+  - name: "*VXLAN* : Service vxlan via systemd starten"
+    systemd:
+      name: vxlan.service
+      daemon_reload: yes
+      state: started
+      enabled: yes
