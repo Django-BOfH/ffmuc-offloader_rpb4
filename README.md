@@ -223,7 +223,7 @@ Hier tragen wir nun unsere individuellen Konfigurationsparameter ein, dazu bearb
 Nun können wir den bau unseres Offloaders mit Hilfe des Ansible Playbooks starten:
 
      $ ansible-playbook -i ~/ansible/inventories/production/hosts 
-                           ~/Freifunk/ffmuc-offloader_rpb4/wireguard-offloader.yml 
+                           ~/ansible/wireguard-offloader.yml 
                            --limit rpb4-ol-a
 
 Nach ca. 10 Minuten, abhängig von der zur Verfügung stehenden Bandbreite am Internet Anschluss, haben wir dann vollständig konfigurierten und funktionsfähigen Offloader für den Anschluss an das Netz von Freifunk München in Händen.
