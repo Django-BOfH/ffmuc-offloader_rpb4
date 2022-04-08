@@ -1,0 +1,5 @@
+---
+  - name: "Repo ext-respondd klonen"
+    git:
+      repo: https://github.com/freifunkMUC/ext-respondd
+      dest: /opt/ext-respondd/

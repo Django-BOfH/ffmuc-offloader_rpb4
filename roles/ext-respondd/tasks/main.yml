@@ -1,0 +1,8 @@
+--- # Installation und Konfiguration des ext-respondd (Statistiken für https://map.ffmuc.net)
+- include: gitinstall.yml               # Installation der Pakete git und python3-netifaces 
+- include: gitclone.yml                 # Repo ext-respondd klonen 
+- include: copyconfig.yml               # Systemd Startdatei für respondd kopieren
+- include: aliasgenerate.yml            # Erstellen der resondd Konfigurationsdatei alias.json 
+- include: configgenerate.yml           # Erstellen der resondd Konfigurationsdatei config.json
+- include: servicestartup.yml           # Service ext-respondd beim Booten starten
+... # YML Ende

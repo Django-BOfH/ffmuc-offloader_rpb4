@@ -1,0 +1,4 @@
+---
+  - name: "Systemd Startdatei für respondd kopieren"
+    shell: 
+      cmd: cp /opt/ext-respondd/ext-respondd.service.example /etc/systemd/system/ext-respondd.service

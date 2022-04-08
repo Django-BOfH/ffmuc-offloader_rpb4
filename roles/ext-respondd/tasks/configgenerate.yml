@@ -1,0 +1,5 @@
+---
+  - name: "Erstellen der resondd Konfigurationsdatei config.json"
+    template: 
+      src: templates/ext-respondd_config.json.j2
+      dest: /opt/ext-respondd/config.json

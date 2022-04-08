@@ -1,0 +1,7 @@
+---
+  - name: "Service ext-respondd beim Booten starten"
+    systemd:
+      name: ext-respondd
+      daemon_reload: yes
+      state: started
+      enabled: yes

@@ -1,0 +1,5 @@
+---
+  - name: "Erstellen der resondd Konfigurationsdatei alias.json"
+    template: 
+      src: templates/ext-respondd_alias.json.j2
+      dest: /opt/ext-respondd/alias.json

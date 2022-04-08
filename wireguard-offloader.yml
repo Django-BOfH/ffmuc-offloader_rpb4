@@ -14,4 +14,5 @@
     - batman                            # Installation und Konfiguration der BATMAN Kernel-Module
     - wireguard                         # Installation und Konfiguration des wireguard Tunnels
     - vxlan                             # Konfiguration von VXLAN für wireguard-Tunnel-Verbindung in Richtung Gateway
+    - ext-respondd                      # Installation und Konfiguration des ext-respondd (Statistiken für https://map.ffmuc.net)
 ... # YML Ende

@@ -1,0 +1,8 @@
+---
+  - name: "Installation der Pakete git und python3-netifaces"
+    apt: 
+      update_cache: yes
+      pkg:
+        - git
+        - python3-netifaces
+      state: present
