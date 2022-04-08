@@ -1,0 +1,3 @@
+---
+  - name: "Reboot nach Abschluss der Konfiguration unseres Offloaders"
+    reboot:

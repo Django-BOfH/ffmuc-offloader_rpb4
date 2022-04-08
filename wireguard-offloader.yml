@@ -17,5 +17,6 @@
     - ext-respondd                      # Installation und Konfiguration des ext-respondd (Statistiken für https://map.ffmuc.net)
     - role: hostapd                     # Installation und Konfiguration des hostap Treibers für den WiFi-Support
       when: ( raspberry_wifi == "ja" )  #
-    - client-mesh                       # Grundkonfiguration von Client und/oder Meshing (V)LANs  
+    - client-mesh                       # Grundkonfiguration von Client und/oder Meshing (V)LANs
+    - final                             # Reboot nach Abschluss der Konfiguration unseres Offloaders  
 ... # YML Ende

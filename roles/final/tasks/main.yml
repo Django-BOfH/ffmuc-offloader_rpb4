@@ -1,0 +1,3 @@
+--- # Reboot nach Abschluss der Konfiguration unseres Offloaders
+- include: reboot.yml                   # /etc/hosts anpassen
+... # YML Ende
