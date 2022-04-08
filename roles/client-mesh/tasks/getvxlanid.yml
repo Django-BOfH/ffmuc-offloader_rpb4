@@ -1,0 +1,6 @@
+---
+  - name: "vxlan_id für ausgewähltes Segment ermitteln"
+    set_fact:
+      ffmuc_vxlan_id: "{{ item.value }}"
+    loop: "{{ lookup('dict', vxlan_ids) }}"
+    when: "ffmuc_segment in item.key"

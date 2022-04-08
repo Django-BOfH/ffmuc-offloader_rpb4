@@ -1,0 +1,6 @@
+---
+  - name: "Konfiguration des Mesh-VLAN ohne Client-VLAN"
+    template: 
+      src: templates/interfaces_mesh_ohne_client.j2
+      dest: /etc/network/interfaces
+    when: ( raspberry_clientvlan|length == 0 ) and ( raspberry_meshvlan|length > 0 )

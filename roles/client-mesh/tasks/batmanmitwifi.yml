@@ -1,0 +1,6 @@
+---
+  - name: "Konfiguration des bevorzugte Meshingpoint in BATMAN_V mit Wifi-Nutzung"
+    template: 
+      src: templates/rclocal_both.j2
+      dest: /etc/rc.local
+    when: ( raspberry_meshvlan|length > 0 ) and ( raspberry_wifi == "ja" )

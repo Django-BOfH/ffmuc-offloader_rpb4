@@ -1,0 +1,8 @@
+--- # Grundkonfiguration von Client und/oder Meshing (V)LANs
+- include: clientohnemesh.yml           # Konfiguration des Client-VLAN ohne Mesh-Netz
+- include: getvxlanid.yml               # vxlan_id für ausgewähltes Segment ermitteln
+- include: meshohneclient.yml           # Konfiguration des Mesh-VLAN ohne Client-VLAN
+- include: meshundclient.yml            # Konfiguration von Mesh- und Client-VLAN
+- include: batmanohnewifi.yml           # Konfiguration des bevorzugte Meshingpoint in BATMAN_V ohne Wifi-Nutzung
+- include: batmanmitwifi.yml            # Konfiguration des bevorzugte Meshingpoint in BATMAN_V mit Wifi-Nutzung
+... # YML Ende

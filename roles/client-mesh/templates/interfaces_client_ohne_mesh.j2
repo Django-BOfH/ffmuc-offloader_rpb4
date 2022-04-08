@@ -1,0 +1,26 @@
+# interfaces(5) file used by ifup(8) and ifdown(8)
+
+# Please note that this file is written to be used with dhcpcd
+# For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
+
+# Include files from /etc/network/interfaces.d:
+# source-directory /etc/network/interfaces.d
+
+auto eth0
+iface eth0 inet dhcp
+
+auto eth0.{{ raspberry_clientvlan }}
+iface eth0.{{ raspberry_clientvlan }} inet manual
+ 
+auto br-{{ ffmuc_segment }}
+iface br-{{ ffmuc_segment }} inet dhcp
+        bridge-ports bat-{{ ffmuc_segment }} eth0.{{ raspberry_clientvlan }}
+        pre-up /usr/sbin/batctl ra BATMAN_V
+        pre-up /sbin/ip link add dummy-{{ ffmuc_segment }} type dummy
+        pre-up /sbin/ip link set address $(ip -br l | grep eth0 | egrep -o '([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})' | head -1) dev dummy-{{ ffmuc_segment }}
+        pre-up /sbin/ip link set dummy-{{ ffmuc_segment }} up
+        pre-up /usr/sbin/batctl meshif bat-{{ ffmuc_segment }} if add dummy-{{ ffmuc_segment }}
+        pre-up /sbin/ip link set bat-{{ ffmuc_segment }} up
+        pre-up /usr/sbin/batctl meshif bat-{{ ffmuc_segment }} gw_mode client
+        pre-up /sbin/ip link set address $(ip -br l | grep eth0 | egrep -o '([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})' | head -1) dev bat-{{ ffmuc_segment }}
+        post-up /sbin/ip link set address $(ip -br l | grep eth0 | egrep -o '([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})' | head -1) dev br-{{ ffmuc_segment }}
