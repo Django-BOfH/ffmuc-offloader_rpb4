@@ -1,0 +1,7 @@
+---
+  - name: "Paket hostapd für WLAN installieren"
+    apt:
+      update_cache: yes
+      pkg:
+        - hostapd
+      state: present

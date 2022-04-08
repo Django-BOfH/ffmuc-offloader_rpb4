@@ -1,0 +1,7 @@
+---
+  - name: "Service hostapd beim Booten und jetzt starten und das Laden der Unit Datei vom Service hostapd ermöglichen"
+    systemd:
+      name: hostapd
+      enabled: yes
+      masked: no
+      state: started

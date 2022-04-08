@@ -1,0 +1,5 @@
+---
+  - name: "wlan0 in Bridge packen"
+    template: 
+      src: templates/rclocal_wifi.j2
+      dest: /etc/rc.local

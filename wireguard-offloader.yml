@@ -15,4 +15,6 @@
     - wireguard                         # Installation und Konfiguration des wireguard Tunnels
     - vxlan                             # Konfiguration von VXLAN für wireguard-Tunnel-Verbindung in Richtung Gateway
     - ext-respondd                      # Installation und Konfiguration des ext-respondd (Statistiken für https://map.ffmuc.net)
+    - role: hostapd                     # Installation und Konfiguration des hostap Treibers für den WiFi-Support
+      when: ( raspberry_wifi == "ja" )  #
 ... # YML Ende

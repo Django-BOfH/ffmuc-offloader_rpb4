@@ -1,0 +1,9 @@
+--- # Installation und Konfiguration des hostap Treibers für den WiFi-Support
+- include: install.yml                  # Paket hostapd für WLAN installieren
+- include: configure.yml                # hostapd konfigurieren
+- include: genconfig.yml                # hostapd Konfigurationsdatei anlegen
+- include: wlanbridging.yml             # wlan0 in Bridge packen
+- include: servicestartup.yml           # Service hostapd beim Booten und jetzt starten 
+                                        # und so das Laden der Unit Datei vom Service 
+                                        # hostapd ermöglichen
+... # YML Ende

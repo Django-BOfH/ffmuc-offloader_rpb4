@@ -1,0 +1,5 @@
+---
+  - name: "hostapd Konfigurationsdatei anlegen"
+    template: 
+      src: templates/hostapd.j2
+      dest: /etc/hostapd/hostapd.conf
