@@ -1,7 +1,7 @@
 --- # Start der YML Datei 
 # Ansible Playbook für (statische) Konfiguration eines Offloader auf Basis eines Raspberry PI 4B
-# Aufruf via $ ansible-playbook ~/Freifunk/ffmuc-offloader_rpb4/wireguard-offloader.yml für alle Hosts der Gruppe
-# bzw. $ ansible-playbook ~/Freifunk/ffmuc-offloader_rpb4/wireguard-offloader.yml --limit rpb4-ol-a für nur einen
+# Aufruf via $ ansible-playbook ~/ansible/wireguard-offloader.yml für alle Hosts der Gruppe
+# bzw. $ ansible-playbook ~/ansible/wireguard-offloader.yml --limit rpb4-ol-a für nur einen
 # Host mit dem Namen rpb4 aus derm inventory
 
 - name:         raspi_offloader.yml     # Name des Playbooks
